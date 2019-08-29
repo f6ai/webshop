@@ -37,7 +37,7 @@ class App extends React.Component {
               ...snapShot.data()
             }
           })
-          console.log(this.state);
+          // console.log(this.state);
         });
       } else {
         // setting the user null if there's no authenticated user (if user logged out)
