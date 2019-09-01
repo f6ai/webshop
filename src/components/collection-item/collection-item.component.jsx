@@ -29,4 +29,5 @@ const mapDispatchToProps = dispatch => ({
     addItem: item => dispatch(addItem(item))
 });
 
+// null because we don't use mapStateToProps here
 export default connect(null, mapDispatchToProps)(CollectionItem);
