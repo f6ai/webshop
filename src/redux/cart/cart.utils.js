@@ -10,4 +10,18 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     }
     // initalize with a base quantity of 1
     return [...cartItems, {...cartItemToAdd, quantity: 1}]
-}
+};
+
+export const removeItemFromCart = (cartItems, cartItemToRemove) => {
+    const existingCartItem = cartItems.find(cartItem => cartItem.id === cartItemToRemove.id)
+    // one item in cart -> keep the other items
+    if (existingCartItem.quantity === 1) {
+        return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
+    }
+
+    return cartItems.map(cartItem => 
+        cartItem.id === cartItemToRemove.id ? 
+        { ...cartItem, quantity: cartItem.quantity - 1 } 
+        : cartItem
+    );
+};
